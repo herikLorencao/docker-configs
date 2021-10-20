@@ -1,0 +1,23 @@
+[
+  {
+    "httpRequest": {
+      "method": "POST",
+      "path": "/teste"
+    },
+    "httpResponse": {
+      "statusCode": 200,
+      "headers": {
+        "content-type": [
+          "application/json"
+        ]
+      },
+      "delay": {
+        "timeUnit": "SECONDS",
+        "value": 1
+      },
+      "body": {
+        "mensagem": "hello world"
+      }
+    }
+  }
+]

@@ -1,0 +1,16 @@
+version: '3'
+services: 
+  rabbitmq:
+        image: rabbitmq:3-management
+        container_name: rabbitmq
+        volumes:
+            - rabbitmq-volume:/var/lib/rabbitmq
+        ports:
+            - 4369:4369
+            - 5671:5671
+            - 5672:5672
+            - 15671:15671
+            - 15672:15672
+            - 25672:25672
+volumes: 
+    rabbitmq-volume:
