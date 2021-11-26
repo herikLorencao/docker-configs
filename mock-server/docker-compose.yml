@@ -1,4 +1,4 @@
-version: "3"
+version: "2"
 services:
   mock-server:
     image: mockserver/mockserver:latest
