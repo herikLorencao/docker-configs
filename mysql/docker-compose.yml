@@ -13,18 +13,6 @@ services:
         networks: 
             - mysql_network
         volumes: 
-            - ~/containers/mysql/data:/var/lib/mysql
-    phpmyadmin:
-        image: phpmyadmin/phpmyadmin
-        container_name: phpmyadmin
-        environment: 
-            PMA_HOST: mysql
-            MYSQL_ROOT_PASSWORD: mysql
-            MYSQL_USER: herik
-            MYSQL_PASSWORD: mysql
-        networks: 
-            - mysql_network
-        ports: 
-            - 1000:80
+            - .var/data:/var/lib/mysql
 networks: 
     mysql_network:
