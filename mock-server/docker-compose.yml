@@ -6,7 +6,6 @@ services:
       - 1080:1080
     environment:
       MOCKSERVER_PROPERTY_FILE: ./config/mockserver.properties
-      MOCKSERVER_WATCH_INITIALIZATION_JSON: 'TRUE'
       MOCKSERVER_INITIALIZATION_JSON_PATH: ./config/initializerJson.json
     volumes:
       - type: bind

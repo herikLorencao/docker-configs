@@ -1,7 +1,7 @@
 [
   {
     "httpRequest": {
-      "method": "POST",
+      "method": "GET",
       "path": "/teste"
     },
     "httpResponse": {

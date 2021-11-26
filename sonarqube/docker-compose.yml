@@ -1,11 +1,11 @@
-version: '3'
+version: "2"
 services:
     sonarqube:
         image: sonarqube
-        ports: 
+        ports:
             - 9000:9000
-        volumes: 
-            - ~/docker/sonarqube/sonar.properties:/opt/sonarqube/conf/sonar.properties
-            - ~/containers/sonarqube/data:/opt/sonarqube/data
-            - ~/containers/sonarqube/logs:/opt/sonarqube/logs
-            - ~/containers/sonarqube/extensions:/opt/sonarqube/extensions
+        volumes:
+            - ./sonar.properties:/opt/sonarqube/conf/sonar.properties
+            - .var/sonarqube/data:/opt/sonarqube/data
+            - .var/sonarqube/logs:/opt/sonarqube/logs
+            - .var/sonarqube/extensions:/opt/sonarqube/extensions

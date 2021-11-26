@@ -1,18 +1,18 @@
-version: '2'
-services: 
+version: "2"
+services:
     mysql:
         image: mysql:8
         container_name: mysql
         command: --default-authentication-plugin=mysql_native_password
-        environment: 
+        environment:
             MYSQL_USER: herik
             MYSQL_PASSWORD: mysql
             MYSQL_ROOT_PASSWORD: mysql
-        ports: 
+        ports:
             - 3306:3306
-        networks: 
+        networks:
             - mysql_network
-        volumes: 
+        volumes:
             - .var/data:/var/lib/mysql
-networks: 
+networks:
     mysql_network:

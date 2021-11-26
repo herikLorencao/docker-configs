@@ -1,31 +1,16 @@
-version: '3'
-services: 
+version: "2"
+services:
     postgres:
-        image: postgres:12
+        image: postgres:latest
         container_name: postgres
         volumes:
-            - ~/containers/postgres/data:/var/lib/postgresql/data
-            - ~/containers/postgres/conf:/etc/postgresql/postgresql.conf
-        environment: 
+            - .var/data:/var/lib/postgresql/data
+            - .var/conf:/etc/postgresql/postgresql.conf
+        environment:
             POSTGRES_PASSWORD: postgres
         ports:
             - 5432:5432
-        networks: 
+        networks:
             - postgres_network
-    pgadmin:
-        image: dpage/pgadmin4:latest
-        container_name: pgadmin4
-        volumes: 
-            - pgadmin:/var/lib/pgadmin
-        environment: 
-            PGADMIN_DEFAULT_EMAIL: heriksantoslorencao@gmail.com
-            PGADMIN_DEFAULT_PASSWORD: pgadmin4
-        networks: 
-            - postgres_network
-        ports: 
-            - 2000:80
-networks: 
+networks:
     postgres_network:
-volumes: 
-    pgadmin:
- 

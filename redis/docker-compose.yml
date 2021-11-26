@@ -1,19 +1,19 @@
-version: '3'
+version: "2"
 services:
-  redis:
-    container_name: redis-single
-    image: redis
-    ports:
-      - 6379:6379
-    networks:
-      - global-default
-  redisinsight:
-    container_name: redis-insight
-    image: redislabs/redisinsight:latest
-    ports:
-      - 8001:8001
-    networks:
-      - global-default
+    redis:
+        container_name: redis-single
+        image: redis
+        ports:
+            - 6379:6379
+        networks:
+            - global-default
+    redisinsight:
+        container_name: redis-insight
+        image: redislabs/redisinsight:latest
+        ports:
+            - 8001:8001
+        networks:
+            - global-default
 networks:
-  global-default:
-    external: true
+    global-default:
+        external: true
