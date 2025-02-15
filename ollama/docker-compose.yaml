@@ -45,6 +45,6 @@ services:
       - WEBUI_AUTH=False
       - WEBUI_SECRET_KEY=t0p-s3cr3t
     ports:
-      - "8080"
+      - "32771:8080"
     volumes:
       - .var/webui-data:/app/data 
