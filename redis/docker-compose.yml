@@ -10,6 +10,8 @@ services:
     redisinsight:
         container_name: redis-insight
         image: redislabs/redisinsight:latest
+        volumes:
+          - redisinsight:/data
         ports:
             - 8001:8001
         networks:
@@ -17,3 +19,5 @@ services:
 networks:
     global-default:
         external: true
+volumes:
+    redisinsight:

@@ -1,4 +1,3 @@
-version: "2"
 services:
   mock-server:
     image: mockserver/mockserver:latest
@@ -11,3 +10,21 @@ services:
       - type: bind
         source: ./config
         target: /config
+    networks:
+      - mock-server-network
+  nginx:
+    image: nginx:latest
+    ports:
+      - 2080:80
+    volumes:
+      - type: bind
+        source: ./config/nginx.conf
+        target: /etc/nginx/nginx.conf
+    depends_on:
+      - mock-server
+    networks:
+      - mock-server-network
+
+networks:
+  mock-server-network:
+    driver: bridge

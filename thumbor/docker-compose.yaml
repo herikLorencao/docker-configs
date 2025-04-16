@@ -1,0 +1,32 @@
+services:
+  thumbor:
+    image: ghcr.io/minimalcompact/thumbor
+    environment:
+      - VIRTUAL_HOST=localhost
+      - THUMBOR_NUM_PROCESSES=8
+      - CORS_ALLOW_ORIGIN=*
+      - AUTO_WEBP=True
+      - RESULT_STORAGE=thumbor.result_storages.no_storage
+      - RESULT_STORAGE_STORES_UNSAFE=True
+      - STORAGE=thumbor.storages.file_storage
+    networks:
+      - thumbor_network
+  nginx-proxy:
+    image: ghcr.io/minimalcompact/thunbor-nginx-proxy-cache
+    environment:
+      - DEFAULT_HOST=localhost
+      - PROXY_CACHE_SIZE=10g
+      - PROXY_CACHE_MEMORY_SIZE=500m
+      - PROXY_CACHE_INACTIVE=300m
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ./var:/var/cache/nginx
+    ports:
+      - 80:80
+      - 443:443
+    networks:
+      - thumbor_network
+
+networks:
+  thumbor_network:
+    driver: bridge
